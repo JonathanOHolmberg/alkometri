@@ -43,49 +43,52 @@ function BloodAlcoholCalculator() {
       <div className="main">
         <h1>Mä oon kännissä, missä sä oot?</h1>
         <p>Laske arvioitu promillemäärä syöttämällä painosi, sukupuolesi, arvioitu kulutus ja arvioitu aikamäärä laskuriin.</p>
-        <div>
-          <label>Weight (kg): </label>
-          <input
-            type="number"
-            name="weight"
-            value={inputValues.weight}
-            onChange={handleInputChange}
-          />
+        <div className="fields">
+          <div className="input">
+            <label>Weight (kg):</label>
+            <input
+              type="number"
+              name="weightInput"
+              value={inputValues.weightInput}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="input">
+            <label>Gender:</label>
+            <select
+              name="genderInput"
+              value={inputValues.genderInput}
+              onChange={handleInputChange}
+            >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div className="input">
+            <label>Number of Beer Bottles:</label>
+            <input
+              type="number"
+              name="bottlesInput"
+              value={inputValues.bottlesInput}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="input">
+            <label>Time (hours):</label>
+            <input
+              type="number"
+              name="timeInput"
+              value={inputValues.timeInput}
+              onChange={handleInputChange}
+            />
+          </div>
+          <button className="calcbutton" onClick={calculateBloodAlcoholLevel}>Calculate</button>
         </div>
+
         <div>
-          <label>Gender: </label>
-          <select
-            name="gender"
-            value={inputValues.gender}
-            onChange={handleInputChange}
-          >
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
-      </div>
-      <div>
-        <label>Number of Beer Bottles: </label>
-        <input
-          type="number"
-          name="bottles"
-          value={inputValues.bottles}
-          onChange={handleInputChange}
-        />
-      </div>
-      <div>
-        <label>Time (hours): </label>
-        <input
-          type="number"
-          name="time"
-          value={inputValues.time}
-          onChange={handleInputChange}
-        />
-      </div>
-      <button onClick={calculateBloodAlcoholLevel}>Calculate</button>
-      <div>
-        <label>Blood Alcohol Level: </label>
-        <span>{result}</span>
-      </div>
+          <label>Blood Alcohol Level:</label>
+          <span>{result}</span>
+        </div>
       </div>
     </div>
   );
